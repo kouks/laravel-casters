@@ -1,0 +1,22 @@
+{
+    "name": "kouks/laravel-casters",
+    "description": "Provides a convenient way to cast and transform your models for API purposes.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["laravel", "api", "casters", "transform"],
+    "authors": [
+        {
+            "name": "Pavel Koch",
+            "email": "kouks.koch@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "illuminate/database": "^5.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Koch\\": "src/"
+        }
+    }
+}
