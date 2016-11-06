@@ -2,6 +2,8 @@
 
 namespace Koch\Casters\Behavior;
 
+use Illuminate\Database\Eloquent\Model;
+
 trait BuildsCastQueries
 {
     /**
