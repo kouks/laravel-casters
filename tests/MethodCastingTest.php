@@ -19,7 +19,7 @@ class MethodCastingTest extends TestCase
         $result = $this->caster->cast($model);
 
         $this->assertArrayHasKey('title', $result);
-        $this->assertEquals('test1test3', $result['title']);
+        $this->assertEquals($model->col1.$model->col3, $result['title']);
     }
 
     /** @test */
@@ -30,8 +30,9 @@ class MethodCastingTest extends TestCase
         $result = $this->caster->cast(TestModel::all());
 
         foreach ($result as $element) {
+            $m = TestModel::find($element['id']);
             $this->assertArrayHasKey('body', $element);
-            $this->assertEquals('test2test4', $element['body']);
+            $this->assertEquals($m->col2.$m->col4, $element['body']);
         }
     }
 }
@@ -41,6 +42,7 @@ class MethodTestCaster extends \Koch\Casters\Caster
     protected function castRules()
     {
         return [
+            'id',
             'title' => '@title',
             'body' => '@body',
         ];
