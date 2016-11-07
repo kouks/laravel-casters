@@ -13,13 +13,6 @@ abstract class Caster implements CasterContract
     use BuildsCastQueries;
 
     /**
-     * Cast builder instanace.
-     *
-     * @var \App\Casters\CastBuilder
-     */
-    private $builder;
-
-    /**
      * Determines the function sign.
      *
      * @var string
@@ -45,12 +38,14 @@ abstract class Caster implements CasterContract
         // if so, we call this method recursively for each of the
         // results.
         if ($model instanceof Collection) {
-            return $model->map([$this, 'cast']);
+            return $model->map([$this, 'cast'])->toArray();
         }
 
         if (empty($model)) {
             return;
         }
+
+        $transformed = [];
 
         // We go through each of the specified cast rules
         // and resolve them one after another.
