@@ -20,11 +20,6 @@ trait BuildsCastQueries
         $key = $old;
         $value = $model->$old;
 
-        // Many explodes here. We go through all of the queries separated
-        // by '|', then parse its arguments after ':', which are separated
-        // by ','. Then we call a corresponding method for each of
-        // those queries, letting them adjust the key - value pair,
-        // which is then returned.
         foreach (explode('|', $query) as $command) {
             list($function, $args) = explode(':', $command);
 
