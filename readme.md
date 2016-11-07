@@ -6,10 +6,10 @@
 ## Contents
 
 - [Installation](#installation)
-- [Usage](#installation)
+- [Usage](#usage)
 - [FAQ](#faq)
 
-## Installtion
+## Installation
 
 ### Composer
 
