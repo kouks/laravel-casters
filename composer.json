@@ -4,7 +4,7 @@
     "type": "library",
     "license": "MIT",
     "keywords": ["laravel", "api", "casters", "transform"],
-    "minimum-stability": "dev",
+    "minimum-stability": "alpha",
     "authors": [
         {
             "name": "Pavel Koch",
@@ -15,7 +15,6 @@
         "illuminate/database": "^5.3"
     },
     "require-dev": {
-        "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~5.0"
     },
     "autoload": {
