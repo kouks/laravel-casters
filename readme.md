@@ -1,5 +1,6 @@
 # Laravel Casters
 
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/kouks/laravel-casters.svg?style=flat-square)](https://packagist.org/packages/kouks/laravel-casters)
 [![Build Status](https://travis-ci.org/kouks/laravel-casters.svg?branch=master)](https://travis-ci.org/kouks/laravel-casters)
 [![StyleCI](https://styleci.io/repos/73021711/shield?branch=master)](https://styleci.io/repos/73021711)
 
