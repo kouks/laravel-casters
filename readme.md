@@ -215,6 +215,42 @@ __Casting a collection__
 
 You cast collections in __the same way__ that you would cast single models. Only difference is that you are given back array of cast models, instead of a single one.
 
+__Casting directly from model instance__
+
+This package provides the `Koch\Casters\Behavior\Castable` trait, which lets you do __both__ casting a single model as follows:
+
+```php
+$post->cast($caster);
+```
+
+__and__ a collection directly from you query:
+
+```php
+Post::cast($caster);
+```
+
+__Also note that if you specify a full class path to the caster in you model, you can omit the `caster` variable completely.__
+
+```php
+...
+class Post extends Model
+{
+    use Castable;
+
+    protected $caster = App\Casters\PostCaster::class;
+}
+```
+
+Lets you do this fancy stuff:
+
+```php
+$post->cast();
+
+Post::cast();
+```
+
+If you follow the convention of storing your casters in the `app/Casters` directory as well as the naming conventions, this package will try to find related caster in that location - this lets you leave out even the `caster` property.
+
 ### Casting relationships
 
 There, obviously, is a way to cast relationships. Suppose there is a related model `Comments`, wich has a `many-one` relationship with our `Post` model. Also suppose that there is a `CommentCaster` set up. Look at the following code:

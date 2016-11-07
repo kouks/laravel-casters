@@ -35,6 +35,30 @@ class CastableTest extends TestCase
             $this->assertEquals($m->col1, $element['title']);
         }
     }
+    /** @test */
+    public function it_implicitly_find_related_caster()
+    {
+        $model = $this->makeModel();
+
+        $result = $model->cast();
+
+        $this->assertArrayHasKey('body', $result);
+        $this->assertEquals($model->col1, $result['body']);
+    }
+
+    /** @test */
+    public function it_implicitly_find_related_caster_for_a_collection()
+    {
+        $this->makeModels();
+
+        $result = TestModel::cast();
+
+        foreach ($result as $element) {
+            $m = TestModel::find($element['id']);
+            $this->assertArrayHasKey('body', $element);
+            $this->assertEquals($m->col1, $element['body']);
+        }
+    }
 }
 
 class CastableTestCaster extends \Koch\Casters\Caster
