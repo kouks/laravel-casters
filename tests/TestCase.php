@@ -4,10 +4,14 @@ use Illuminate\Database\Capsule\Manager as DB;
 
 abstract class TestCase extends PHPUnit_Framework_TestCase
 {
+    protected $faker;
+
     public function setUp()
     {
         $this->setUpDatabase();
         $this->migrateTables();
+
+        $this->faker = Faker\Factory::create();
     }
 
     protected function setUpDatabase()
@@ -32,30 +36,30 @@ abstract class TestCase extends PHPUnit_Framework_TestCase
         });
     }
 
-    protected function makeModel($str = 'test')
+    protected function makeModel()
     {
         $m = new TestModel();
 
-        $m->col1 = $str . '1';
-        $m->col2 = $str . '2';
-        $m->col3 = $str . '3';
-        $m->col4 = $str . '4';
-        $m->col5 = $str . '5';
+        $m->col1 = $this->faker->unique()->word;
+        $m->col2 = $this->faker->unique()->word;
+        $m->col3 = $this->faker->unique()->word;
+        $m->col4 = $this->faker->unique()->word;
+        $m->col5 = $this->faker->unique()->word;
 
         $m->save();
 
         return $m;
     }
 
-    protected function makeModels($count = 5, $str = 'test')
+    protected function makeModels($count = 5)
     {
         foreach (range(1, $count) as $i) {
-            $this->makeModel($str);
+            $this->makeModel();
         }
     }
 }
 
 class TestModel extends \Illuminate\Database\Eloquent\Model
 {
-    //
+    use Koch\Casters\Behavior\Castable;
 }

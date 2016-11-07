@@ -19,7 +19,7 @@ class ClosureCastingTest extends TestCase
         $result = $this->caster->cast($model);
 
         $this->assertArrayHasKey('title', $result);
-        $this->assertEquals('test1test2', $result['title']);
+        $this->assertEquals($model->col1.$model->col2, $result['title']);
     }
 
     /** @test */
@@ -30,8 +30,9 @@ class ClosureCastingTest extends TestCase
         $result = $this->caster->cast(TestModel::all());
 
         foreach ($result as $element) {
+            $m = TestModel::find($element['id']);
             $this->assertArrayHasKey('body', $element);
-            $this->assertEquals('test3test4', $element['body']);
+            $this->assertEquals($m->col3.$m->col4, $element['body']);
         }
     }
 }
@@ -41,6 +42,7 @@ class ClosureTestCaster extends \Koch\Casters\Caster
     protected function castRules()
     {
         return [
+            'id',
             'title' => function (TestModel $m) {
                 return $m->col1 . $m->col2;
             },

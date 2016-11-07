@@ -18,7 +18,7 @@ class BuildsCastQueriesTest extends TestCase
         $result = $this->caster->cast($model);
 
         $this->assertArrayHasKey('title', $result);
-        $this->assertEquals('test1', $result['title']);
+        $this->assertEquals($model->col1, $result['title']);
     }
 
     /** @test */
@@ -53,7 +53,7 @@ class BuildsCastQueriesTest extends TestCase
 
         foreach ($result as $element) {
             $this->assertArrayHasKey('title', $element);
-            $this->assertEquals('test1', $element['title']);
+            $this->assertEquals(TestModel::find($element['id'])->col1, $element['title']);
         }
     }
 }
@@ -63,6 +63,7 @@ class QueryTestCaster extends \Koch\Casters\Caster
     protected function castRules()
     {
         return [
+            'id',
             'col1' => '!name:title',
             'col2' => '!type:int',
             'col3' => '!name:body|type:bool',
