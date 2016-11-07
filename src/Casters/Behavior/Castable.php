@@ -35,7 +35,7 @@ trait Castable
             return new $this->caster;
         }
 
-        $name = 'App\\Casters\\' . class_basename($this) . 'Caster';
+        $name = 'App\\Casters\\'.class_basename($this).'Caster';
 
         return new $name;
     }
