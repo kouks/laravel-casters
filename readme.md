@@ -1,5 +1,6 @@
 # Laravel Casters
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/kouks/laravel-casters/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/kouks/laravel-casters/?branch=master)
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/kouks/laravel-casters.svg?style=flat-square)](https://packagist.org/packages/kouks/laravel-casters)
 [![Build Status](https://travis-ci.org/kouks/laravel-casters.svg?branch=master)](https://travis-ci.org/kouks/laravel-casters)
 [![StyleCI](https://styleci.io/repos/73021711/shield?branch=master)](https://styleci.io/repos/73021711)
