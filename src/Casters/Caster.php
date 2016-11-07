@@ -43,7 +43,7 @@ abstract class Caster implements CasterContract
         }
 
         $transformed = [];
-        
+
         foreach ($this->castRules() as $old => $desired) {
             $this->resolveCast($old, $desired, $model, $transformed);
         }
