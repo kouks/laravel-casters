@@ -4,7 +4,7 @@
     "type": "library",
     "license": "MIT",
     "keywords": ["laravel", "api", "casters", "transform"],
-    "minimum-stability": "0.0.1",
+    "minimum-stability": "alpha",
     "authors": [
         {
             "name": "Pavel Koch",
