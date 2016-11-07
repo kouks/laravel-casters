@@ -194,7 +194,7 @@ Note that you can use _DI_ for your casters, as with anything in Laravel. Then y
   "text": "Some long text...",
   "active": true,
   "draft": false,
-  "creted_at": {
+  "updated_at": {
     "date": "2016-11-01 00:38:03.000000",
     "timezone_type": 3,
     "timezone": "UTC"
