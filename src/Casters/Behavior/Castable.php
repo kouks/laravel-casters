@@ -24,6 +24,11 @@ trait Castable
         return $caster->cast($query->get());
     }
 
+    /**
+     * Resolves the caster name and returns its instance.
+     *
+     * @return \Koch\Casters\Contracts\Caster
+     */
     protected function findCaster()
     {
         if (property_exists($this, 'caster')) {
