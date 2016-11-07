@@ -34,9 +34,6 @@ abstract class Caster implements CasterContract
      */
     public function cast($model)
     {
-        // First we determine if given parameter is a collection
-        // if so, we call this method recursively for each of the
-        // results.
         if ($model instanceof Collection) {
             return $model->map([$this, 'cast'])->toArray();
         }
@@ -46,9 +43,7 @@ abstract class Caster implements CasterContract
         }
 
         $transformed = [];
-
-        // We go through each of the specified cast rules
-        // and resolve them one after another.
+        
         foreach ($this->castRules() as $old => $desired) {
             $this->resolveCast($old, $desired, $model, $transformed);
         }
