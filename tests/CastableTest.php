@@ -36,7 +36,7 @@ class CastableTest extends TestCase
         }
     }
     /** @test */
-    public function it_implicitly_find_related_caster()
+    public function it_implicitly_finds_related_caster()
     {
         $model = $this->makeModel();
 
@@ -47,7 +47,7 @@ class CastableTest extends TestCase
     }
 
     /** @test */
-    public function it_implicitly_find_related_caster_for_a_collection()
+    public function it_implicitly_finds_related_caster_for_a_collection()
     {
         $this->makeModels();
 
